@@ -2,15 +2,17 @@
 define("N",9);
 
 function ligne($i, $n, $tete=false){
-    $s = "";
+    $s = '';
     if($tete){
-        $s = "* ";
-        for($i=0; $i<=$n; $i++) $s .= " ".$i." "; 
-        $s .= "<br>";
+        $s .= "<tr>";
+        $s .= "<td>*</td>";
+        for($i=0; $i<=$n; $i++) $s .= "<td>".$i."</td>"; 
+        $s .= "</tr>";
     }else{
-        $s .= $i." ";
-        for($j=0; $j<=$n; $j++) $s .= " ".$i*$j." ";
-        $s .= "<br>";
+        $s .= "<tr>";
+        $s .= "<td>".$i."</td>";
+        for($j=0; $j<=$n; $j++) $s .= "<td>".$i*$j."</td>";
+        $s .= "</tr>";
     } 
     return $s;
 }
@@ -31,9 +33,9 @@ for($i=0; $i<=N; $i++) $tab5 .= "$i * 5 = ".(5*$i)."<br>";
 
 $msg2 = "<p>$tab5</p>";
 
-$msg3 = "<p>";
+$msg3 = "<table>";
 for($i=-1; $i<=N; $i++) $msg3 .= ligne($i, N, $i==-1);
-$msg3 .= "</p>";
+$msg3 .= "</table>";
 
 $html2 = <<<BOBM
         </body>
